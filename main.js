@@ -1,6 +1,6 @@
 $('#submit-btn').click(function(event) {
   event.preventDefault();
-  var inputCity = $('#city-type').val().toLowerCase();
+  var inputCity = $('#city-type').val().toLowerCase().trim();
   if (inputCity === 'austin') {
     $('body').css('background-image', 'url(images/austin.jpg)');
   } else if (inputCity === 'la' || inputCity === 'los angeles') {
@@ -12,9 +12,19 @@ $('#submit-btn').click(function(event) {
   } else if (inputCity === 'sydney') {
     $('body').css('background-image', 'url(images/sydney.jpg)');
   } else {
-    $('body').css('background-image', 'url(images/citipix_skyline.jpg)');
+    // $('body').css('background-image', 'url(images/citipix_skyline.jpg)');
+    alert('wrong input!');
   }
+  //
 })
+
+function reset(event) {
+  event.preventDefault();
+  $('body').css('background-image', 'url(images/citipix_skyline.jpg)');
+  $('#city-type').val('');
+}
+$('#reset-btn').click(reset);
+
 
 
 //if it's array
